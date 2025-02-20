@@ -1,29 +1,33 @@
 document.addEventListener('DOMContentLoaded', function () {
     const items = document.querySelectorAll('.sj_list .item');
     const filters = document.querySelectorAll('.cate_search_item ul li');
+    let currentPage = 1;
+    let currentFilter = '';
 
-    // 分页按钮点击事件
-    document.querySelectorAll('.pages a').forEach(link => {
-        link.addEventListener('click', function (event) {
+    // Delegate pagination click events
+    document.querySelector('.pages').addEventListener('click', function (event) {
+        if (event.target.tagName === 'A') {
             event.preventDefault();
-            const page = this.textContent;
+            const page = event.target.textContent;
             updatePage(page);
-        });
+        }
     });
 
-    // 筛选按钮点击事件
-    filters.forEach(filter => {
-        filter.addEventListener('click', function (event) {
+    // Delegate filter click events
+    document.querySelector('.cate_search_item ul').addEventListener('click', function (event) {
+        if (event.target.tagName === 'LI') {
             event.preventDefault();
             const selectedFilter = event.target.textContent;
             filterItems(selectedFilter);
-        });
+        }
     });
 
-    // 初始加载第一页
+    // Initial load
     updatePage(1);
 
+    // Update page content
     function updatePage(page) {
+        currentPage = page;
         const start = (page - 1) * 10;
         const end = start + 10;
         items.forEach((item, index) => {
@@ -35,7 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Filter items
     function filterItems(filter) {
+        currentFilter = filter;
         items.forEach(item => {
             const itemName = item.querySelector('.item_name').textContent.toLowerCase();
             const filterText = filter.toLowerCase();
@@ -45,6 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 item.style.display = 'none';
             }
         });
+        updatePage(currentPage);  // Ensure pagination works with filtering
     }
 });
-
