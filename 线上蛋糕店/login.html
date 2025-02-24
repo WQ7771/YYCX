@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<div class="w">
+				<div class="logo">
+					<a href="index.html">
+						<img src="./images/logo.png" class="logo_img">
+					</a>
+				</div>
+				<ul class="nav">
+					<li><a href="index.html">首页</a></li>
+					<li><a href="dangao_list.html">蛋糕列表</a></li>
+					<li><a href="aboutus.html">关于我们</a></li>
+					<li><a href="news.html">新闻资讯</a></li>
+					<li><a href="cart.html">购物车</a></li>
+					<li class="active"><a href="login.html">登录</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		
+		<div class="content login_content">
+			<div class="w">
+				<div class="form" >
+					<div class="login_title">我要登录</div>
+					<form action="">
+						<div class="form_text">账号：</div>
+						<div class="form_input">
+							<input id="account" type="text" placeholder="请输入账号">
+						</div>
+						<div class="form_text">密码：</div>
+						<div class="form_input">
+							<input id="password" type="password" placeholder="请输入密码">
+						</div>
+						<div class="form_button">
+							<button type="button" onclick="checkLogin()">确认提交</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="footer" style="margin-top: 0;">
+		Copyright© Cake蛋糕官网商城 2023-2024, 版权所有
+	</div>
+		
+	<script src="./js/login.js"></script>
+</body>
+</html>
